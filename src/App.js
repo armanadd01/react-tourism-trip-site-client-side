@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
 import { Route, Switch } from 'react-router';
 import { BrowserRouter as Router} from 'react-router-dom';
 import Plans from './Component/Home/Plans/Plans';
@@ -8,11 +8,18 @@ import Header from './Component/Shared/Header/Header';
 import Footer from './Component/Shared/Footer/Footer';
 import Home from './Component/Home/Home/Home';
 import AddPlans from './Component/AddPlans/AddPlans';
+import PlanDetails from './Component/PlanDetails/PlanDetails';
+import PageNotfound from './Component/Shared/PageNotFound/PageNotfound';
+import PrivateRoute from './Component/Shared/Login/PrivateRoute/PrivateRoute';
+import AuthProvider from './context/AuthProvider';
 
 function App() {
-  console.log(process.env);
+
   return (
     <div className="App">
+      <AuthProvider>
+
+
       <Router>
         <Header></Header>
         <Switch>
@@ -33,18 +40,19 @@ function App() {
             <AddPlans></AddPlans>
           </Route>
           {/* Private Route */}
-          {/* <PrivateRoute path="/service/:serviceId">
-              <DepartmentDetails></DepartmentDetails>
+          <PrivateRoute path="/plans/:plansId">
+              <PlanDetails></PlanDetails>
           </PrivateRoute>
-          <PrivateRoute path="/doctor/:doctorId">
+          {/* <PrivateRoute path="/doctor/:doctorId">
               <DoctorDetails></DoctorDetails>
-          </PrivateRoute>
+          </PrivateRoute> */}
           <Route exact path="*">
-            <Page404></Page404>
-          </Route> */}
+            <PageNotfound></PageNotfound>
+          </Route>
         </Switch>
         <Footer></Footer>
       </Router>
+      </AuthProvider>
     </div>
   );
 }

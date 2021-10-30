@@ -4,7 +4,7 @@ import React from 'react';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
-    const {googleLogIn} = useAuth;
+    const {googleLogIn} = useAuth();
     
     return (
       // Login page
@@ -18,7 +18,7 @@ const Login = () => {
                                 <p>Don't have an account?</p>
                                 <p>Please click the Input Field And Register</p>
                                 <div className="mt-5">
-                            <button onClick={googleLogIn} className="btn btn-warning" >
+                            <button onClick={googleLogIn} className="btn btn-outline-light" >
                                 <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon> Google Sign in 
                             </button>
                             </div>

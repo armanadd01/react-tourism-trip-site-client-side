@@ -1,7 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import logoImg from '../../../Images/logo.png';
 const Header = () => {
+    const { user, logOut } = useAuth();
+    console.log("🚀 ~ file: Header.js ~ line 7 ~ Header ~ useAuth", useAuth())
+    
     return (
         <>
         {/* Navber */}
@@ -50,24 +54,24 @@ const Header = () => {
                                         <ul className="navbar-nav ">
                                             
                                             <li className="nav-item p-2">
-                                            {/* { user?.displayName? */}
+                                            { user?.displayName?
                                                     <NavLink to="/login">
                                                     <button className="btn btn-warning me-2" >Log-out</button>
                                                     </NavLink>
-                                                    {/* : */}
+                                                     : 
                                                     <NavLink to="/login">
                                                     <button className="btn btn-warning me-2" >Log In</button>
                                                     </NavLink>
-                                                {/* } */}
+                                                 } 
                                                 
                                             </li>
-                                            {/* { user?.displayName? */}
+                                             { user?.displayName? 
                                                 <li className="nav-item p-2">
-                                                    {/* Signed in as: <a href="#login">{user?.displayName}</a> */}
+                                                     Signed in as: <a href="#login">{user?.displayName}</a> 
                                                 </li>
                                                 :
                                                 ''
-                                            {/* } */}
+                                             } 
                                         </ul>
                                     </div>
                                 </nav>
