@@ -39,14 +39,14 @@ const Header = () => {
                                             <li className="nav-item p-2">
                                                 <NavLink activeClassName="border-bottom border-danger border-5 rounded-bottom text-danger" className="nav-link fs-6 border-5 border-transparent fw-bold" to="/plans">Plans</NavLink>
                                             </li>
-                                            <li className="nav-item p-2">
-                                                <NavLink activeClassName="border-bottom border-danger border-5 rounded-bottom text-danger" className="nav-link fs-6 border-5 border-transparent fw-bold" to="/bookings">Bookings</NavLink>
+                                             <li className="nav-item p-2">
+                                                <NavLink activeClassName="border-bottom border-danger border-5 rounded-bottom text-danger" className="nav-link fs-6 border-5 border-transparent fw-bold" to="/allorders">All Orders</NavLink>
                                             </li>
                                             <li className="nav-item p-2">
                                                 <NavLink activeClassName="border-bottom border-danger border-5 rounded-bottom text-danger" className="nav-link fs-6 border-5 border-transparent fw-bold" to="/myorders">My orders</NavLink>
                                             </li>
                                             <li className="nav-item p-2">
-                                                <NavLink activeClassName="border-bottom border-danger border-5 rounded-bottom text-danger" className="nav-link fs-6 border-5 border-transparent fw-bold" to="/manageorder">Manage All Orders</NavLink>
+                                                <NavLink activeClassName="border-bottom border-danger border-5 rounded-bottom text-danger" className="nav-link fs-6 border-5 border-transparent fw-bold" to="/admindashboard">Admin Dashboard</NavLink>
                                             </li>
                                         </ul>
                                     </div>
@@ -56,7 +56,7 @@ const Header = () => {
                                             <li className="nav-item p-2">
                                             { user?.displayName?
                                                     <NavLink to="/login">
-                                                    <button className="btn btn-warning me-2" >Log-out</button>
+                                                        <button onClick={logOut} className="btn btn-warning me-2" >Log-out</button>
                                                     </NavLink>
                                                      : 
                                                     <NavLink to="/login">
@@ -67,7 +67,7 @@ const Header = () => {
                                             </li>
                                              { user?.displayName? 
                                                 <li className="nav-item p-2">
-                                                     Signed in as: <a href="#login">{user?.displayName}</a> 
+                                                     <a href="#login">{user?.displayName}</a> 
                                                 </li>
                                                 :
                                                 ''

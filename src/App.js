@@ -8,10 +8,17 @@ import Header from './Component/Shared/Header/Header';
 import Footer from './Component/Shared/Footer/Footer';
 import Home from './Component/Home/Home/Home';
 import AddPlans from './Component/AddPlans/AddPlans';
-import PlanDetails from './Component/PlanDetails/PlanDetails';
 import PageNotfound from './Component/Shared/PageNotFound/PageNotfound';
 import PrivateRoute from './Component/Shared/Login/PrivateRoute/PrivateRoute';
 import AuthProvider from './context/AuthProvider';
+import MyOrders from './Component/MyOrders/MyOrders';
+import Orders from './Component/Orders/Orders';
+import AdminDashboard from './Component/Admin/AdminDashboard/AdminDashboard';
+import AllUsers from './Component/Admin/AllUsers/AllUsers';
+import AddUser from './Component/AddUser/AddUser';
+import AddOrders from './Component/AddOrders/AddOrders';
+
+
 
 function App() {
 
@@ -32,17 +39,35 @@ function App() {
           <Route path="/plans">
             <Plans></Plans>
           </Route>
-
           <Route path="/login">
             <Login></Login>
           </Route>
           <Route path="/addplans">
             <AddPlans></AddPlans>
           </Route>
-          {/* Private Route */}
-          <PrivateRoute path="/plans/:plansId">
-              <PlanDetails></PlanDetails>
+          <Route path="/myorders">
+            <MyOrders></MyOrders>
+          </Route>
+          <Route path="/orders">
+            <Orders></Orders>
+          </Route>
+          <Route path="/allusers">
+            <AllUsers></AllUsers>
+          </Route>
+          <Route path="/adduser">
+            <AddUser></AddUser>
+          </Route>
+          <PrivateRoute path="/addorder/:plansId">
+            <AddOrders></AddOrders>
           </PrivateRoute>
+          
+          <Route exact path="/admindashboard">
+            <AdminDashboard></AdminDashboard>
+          </Route>
+          {/* Private Route */}
+          {/* <PrivateRoute path="/plans/:plansId">
+              <PlanDetails></PlanDetails>
+          </PrivateRoute> */}
           {/* <PrivateRoute path="/doctor/:doctorId">
               <DoctorDetails></DoctorDetails>
           </PrivateRoute> */}

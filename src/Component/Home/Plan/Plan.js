@@ -2,9 +2,10 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
 import { Button, Card, Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Plan = (props) => {
-    const {Price, name, img, description } = props.plan
+    const {_id, Price, name, img, description } = props.plan
     return (
         <>
             
@@ -19,7 +20,9 @@ const Plan = (props) => {
                         <Card.Text>
                             {description}
                         </Card.Text>
+                        <Link to={`/addorder/${_id}`}>
                         <Button variant="outline-danger" size="sm">Go somewhere <FontAwesomeIcon className="ms-5" icon={faArrowAltCircleRight} /></Button>
+                        </Link>
                     </Card.Body>
                 </Card>    
             </Col>
