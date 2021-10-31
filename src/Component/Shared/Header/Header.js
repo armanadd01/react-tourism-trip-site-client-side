@@ -4,7 +4,6 @@ import useAuth from '../../../hooks/useAuth';
 import logoImg from '../../../Images/logo.png';
 const Header = () => {
     const { user, logOut } = useAuth();
-    console.log("🚀 ~ file: Header.js ~ line 7 ~ Header ~ useAuth", useAuth())
     
     return (
         <>
@@ -43,11 +42,17 @@ const Header = () => {
                                                 <NavLink activeClassName="border-bottom border-danger border-5 rounded-bottom text-danger" className="nav-link fs-6 border-5 border-transparent fw-bold" to="/allorders">All Orders</NavLink>
                                             </li>
                                             <li className="nav-item p-2">
-                                                <NavLink activeClassName="border-bottom border-danger border-5 rounded-bottom text-danger" className="nav-link fs-6 border-5 border-transparent fw-bold" to="/myorders">My orders</NavLink>
+                                                <NavLink activeClassName="border-bottom border-danger border-5 rounded-bottom text-danger" className="nav-link fs-6 border-5 border-transparent fw-bold" to={`/myorder/${user?.email}`} >
+                                                    My orders
+                                                    </NavLink>
                                             </li>
+                                            { user?.displayName?
                                             <li className="nav-item p-2">
                                                 <NavLink activeClassName="border-bottom border-danger border-5 rounded-bottom text-danger" className="nav-link fs-6 border-5 border-transparent fw-bold" to="/admindashboard">Admin Dashboard</NavLink>
                                             </li>
+                                            :
+                                            ''
+                                            }
                                         </ul>
                                     </div>
                                     <div className="col-md-4">

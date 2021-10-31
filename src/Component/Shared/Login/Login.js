@@ -1,11 +1,28 @@
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { Redirect, Route, useHistory, useLocation } from 'react-router';
+import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
-    const {googleLogIn} = useAuth();
+    const {googleLogIn } = useAuth();
+    const history = useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/" } };
+    console.log("🚀 ~ file: Login.js ~ line 12 ~ Login ~ from", from)
     
+    let login = () => {
+        googleLogIn(() => {
+        const redirect =  async () => history.push(from);
+         
+         console.log(history.replace(from))
+        });
+        //  console.log("🚀 ~ file: Login.js ~ line 19 ~ googleLogIn ~ googleLogIn", googleLogIn)
+        
+        
+    };
+    // console.log("🚀 ~ file: Login.js ~ line 19 ~ login ~ login", login)
     return (
       // Login page
         <div className="login-bg p-5">
@@ -18,9 +35,15 @@ const Login = () => {
                                 <p>Don't have an account?</p>
                                 <p>Please click the Input Field And Register</p>
                                 <div className="mt-5">
-                            <button onClick={googleLogIn} className="btn btn-outline-light" >
-                                <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon> Google Sign in 
-                            </button>
+                                
+                                    <Link onClick={login} to={from.pathname} className="btn btn-outline-light" >
+                                    <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>
+                                   
+                                    Google Sign in 
+                                </Link>
+                                  
+                                
+                            
                             </div>
                         </div>
                       </div>

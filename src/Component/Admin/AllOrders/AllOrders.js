@@ -3,12 +3,29 @@ import { Container, Row, Table } from 'react-bootstrap';
 
 const AllOrders = () => {
     const [orders, setOrders] = useState([]);
+    const [control, setConrol] = useState(false);
 
     useEffect(() => {
         fetch("http://localhost:5000/orders")
         .then((res) => res.json())
         .then((data) => setOrders(data));
-    }, []);
+    }, [control]);
+
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/deleteOrder/${id}`, {
+          method: "DELETE",
+          headers: { "content-type": "application/json" },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              setConrol(!control);
+            } else {
+              setConrol(false);
+            }
+          });
+        console.log(id);
+      };
 
     return (
         <div>
@@ -32,7 +49,12 @@ const AllOrders = () => {
                             <td>{pd?.name}</td>
                             <td>{pd?.email}</td>
                             <td>{pd?.date}</td>
-                            <button className="btn bg-danger p-2">Delete</button>
+                            <button
+                            onClick={() => handleDelete(pd._id)}
+                            className="btn btn-outline-danger  p-2"
+                        >
+                            Delete
+                        </button> 
                             </tr>
                         </tbody>
                         ))}

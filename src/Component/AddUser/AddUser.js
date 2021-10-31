@@ -35,7 +35,7 @@ const AddUser = () => {
 
                                 <input className="form-control  m-3" placeholder="Enter Email" type="text"  {...register("email", { required: true })} />
 
-                                <input type="datetime-local" className="form-control m-3" placeholder="Enter Date" type="datetime-local" defaultValue={new Date()}  {...register("date")} />
+                                <input  className="form-control m-3" placeholder="Enter Date" type="datetime-local" defaultValue={new Date()}  {...register("date")} />
 
                                 <textarea className="form-control m-3" placeholder="Enter Order Description" {...register("description")} />
 

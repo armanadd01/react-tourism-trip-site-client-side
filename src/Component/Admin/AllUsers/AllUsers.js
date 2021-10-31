@@ -14,7 +14,7 @@ const AllUsers = () => {
         <>
             <Container>
                 <Row>
-                <h1>ALL Orders {users?.length}</h1>
+                <h1>ALL User {users?.length}</h1>
                     <Table striped bordered hover>
                         <thead>
                         <tr>
