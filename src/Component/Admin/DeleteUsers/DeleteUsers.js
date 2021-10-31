@@ -7,13 +7,13 @@ const DeleteUsers = () => {
   const [control, setConrol] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://peaceful-bayou-60710.herokuapp.com/users")
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, [control]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/deleteusers/${id}`, {
+    fetch(`https://peaceful-bayou-60710.herokuapp.com/deleteusers/${id}`, {
       method: "DELETE",
       headers: { "content-type": "application/json" },
     })

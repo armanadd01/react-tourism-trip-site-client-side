@@ -10,7 +10,7 @@ const AddOrders = () => {
     const [plans, setPlan] = useState([]);
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/addorder/${plansId}`)
+        fetch(`https://peaceful-bayou-60710.herokuapp.com/addorder/${plansId}`)
         .then(res => res.json())
         .then(data => setPlan(data))
     },[]);

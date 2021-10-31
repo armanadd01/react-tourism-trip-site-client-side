@@ -8,14 +8,14 @@ const MyOrders = () => {
     const [orders, setOrders] = useState([]);
     const [control, setConrol] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/myorder/${user?.email}`)
+    fetch(`https://peaceful-bayou-60710.herokuapp.com/myorder/${user?.email}`)
       .then(res => res.json())
       .then(data => setOrders(data));
       
   }, [user?.email]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/deleteOrder/${id}`, {
+    fetch(`https://peaceful-bayou-60710.herokuapp.com/deleteOrder/${id}`, {
       method: "DELETE",
       headers: { "content-type": "application/json" },
     })

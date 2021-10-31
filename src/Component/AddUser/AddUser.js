@@ -10,7 +10,7 @@ const AddUser = () => {
     const onSubmit = data => {
         console.log(data)
         data.email = user?.email;
-        axios.post('http://localhost:5000/adduser',data)
+        axios.post('https://peaceful-bayou-60710.herokuapp.com/adduser',data)
         .then(res => {
             if(res.data.insertedId){
                 alert('Order Added Successfully');

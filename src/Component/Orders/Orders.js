@@ -7,7 +7,7 @@ const Orders = () => {
  
 
   useEffect(() => {
-    fetch("http://localhost:5000/orders")
+    fetch("https://peaceful-bayou-60710.herokuapp.com/orders")
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, []);

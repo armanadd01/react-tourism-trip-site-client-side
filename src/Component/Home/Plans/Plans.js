@@ -6,7 +6,7 @@ const Plans = () => {
     const [plans, setPlan] = useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:5000/plans')
+        fetch('https://peaceful-bayou-60710.herokuapp.com/plans')
         .then(res => res.json())
         .then(data => setPlan(data))
     },[])

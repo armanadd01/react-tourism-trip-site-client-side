@@ -6,7 +6,7 @@ const AddPlans = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data)
-        axios.post('http://localhost:5000/plans',data)
+        axios.post('https://peaceful-bayou-60710.herokuapp.com/plans',data)
         .then(res => {
             if(res.data.insertedId){
                 alert('Trip Plan Added Successfully');
