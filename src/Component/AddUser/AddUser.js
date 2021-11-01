@@ -26,12 +26,12 @@ const AddUser = () => {
             <div className="col-md-12 bg-danger rounded shadow p-5 bg-danger">
                 <div className="text-wrap p-4 p-lg-5 text-center bg-danger">
                         <div className="text-light w-100 align-middle">
-                            <h2 className="fs-1 ">Welcome to Add orders</h2>
+                            <h2 className="fs-1 ">Welcome to Add Users</h2>
                             
                             <p>Please Fill the from with all info</p>
                             <div className="mt-5">
                             <form className="p-2" onSubmit={handleSubmit(onSubmit)}>
-                                <input className="form-control m-3" placeholder="Enter Plans name" type="text"  {...register("name", { required: true, maxLength: 20 })} />
+                                <input className="form-control m-3" placeholder="Enter Name" type="text"  {...register("name", { required: true, maxLength: 20 })} />
 
                                 <input className="form-control  m-3" placeholder="Enter Email" type="text"  {...register("email", { required: true })} />
 

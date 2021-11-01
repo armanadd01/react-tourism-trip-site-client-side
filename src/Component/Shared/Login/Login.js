@@ -8,11 +8,11 @@ import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
-    const {googleLogIn, setUser, signInWithPopup} = useAuth();
+    const {googleLogIn, setUser, signInWithPopup, error, setError, isLoading} = useAuth();
     const { register, handleSubmit, reset } = useForm();
     const history = useHistory();
     const location = useLocation();
-    const  redirect_url  = location?.state?.from ||  "/";
+    const  redirect_url  = location?.state || { from: { pathname: "/" } };
 
 
     const onSubmit = data => {
@@ -32,7 +32,10 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user)
-                history.replace(redirect_url)
+                history.push(redirect_url.from?.pathname)
+            })
+            .catch((error)=>{
+                setError(error.message)
             })
         };
 

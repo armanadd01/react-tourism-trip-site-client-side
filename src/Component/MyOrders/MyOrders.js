@@ -2,11 +2,12 @@ import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Table } from 'react-bootstrap';
-import useFirebase from '../../hooks/useFirebase';
+import useAuth from '../../hooks/useAuth';
+
 
 
 const MyOrders = () => {
-    const { user } = useFirebase();
+    const { user } = useAuth();
     const [orders, setOrders] = useState([]);
     const [control, setConrol] = useState(false);
   useEffect(() => {

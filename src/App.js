@@ -12,10 +12,9 @@ import PageNotfound from './Component/Shared/PageNotFound/PageNotfound';
 import PrivateRoute from './Component/Shared/Login/PrivateRoute/PrivateRoute';
 import AuthProvider from './context/AuthProvider';
 import MyOrders from './Component/MyOrders/MyOrders';
- import Orders from './Component/Orders/Orders';
+import Orders from './Component/Orders/Orders';
 import AdminDashboard from './Component/Admin/AdminDashboard/AdminDashboard';
 import AllUsers from './Component/Admin/AllUsers/AllUsers';
-//import AllOrders from './Component/Admin/AllOrders/AllOrders';
 import AddUser from './Component/AddUser/AddUser';
 import AddOrders from './Component/AddOrders/AddOrders';
 
@@ -49,22 +48,21 @@ function App() {
           <Route path="/myorder/:email">
             <MyOrders></MyOrders>
           </Route>
-          <Route path="/allorders">
+          <PrivateRoute path="/allorders">
             <Orders></Orders>
-          </Route>
-          <Route path="/allusers">
+          </PrivateRoute>
+          <PrivateRoute path="/allusers">
             <AllUsers></AllUsers>
-          </Route>
-          <Route path="/adduser">
+          </PrivateRoute>
+          <PrivateRoute path="/adduser">
             <AddUser></AddUser>
-          </Route>
+          </PrivateRoute>
           <PrivateRoute path="/addorder/:plansId">
             <AddOrders></AddOrders>
           </PrivateRoute>
-          
-          <Route exact path="/admindashboard">
+          <PrivateRoute exact path="/admindashboard">
             <AdminDashboard></AdminDashboard>
-          </Route>
+          </PrivateRoute>
           
           <Route exact path="*">
             <PageNotfound></PageNotfound>
