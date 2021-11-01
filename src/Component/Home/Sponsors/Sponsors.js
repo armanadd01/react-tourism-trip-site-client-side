@@ -13,8 +13,8 @@ const Sponsors = () => {
                             <FontAwesomeIcon icon={faMapMarkerAlt} />
                         </div>
                         <div>
-                            <h2>584</h2>
-                            <p>Top Local Guides</p>
+                            <h2>1500</h2>
+                            <p>Top Local Guides waiting for you</p>
                         </div>
                     </Col>
                     <Col className="d-flex text-light justify-content-center">
@@ -22,7 +22,7 @@ const Sponsors = () => {
                             <FontAwesomeIcon icon={faCloudSun} />
                         </div>
                         <div>
-                            <h2>7410</h2>
+                            <h2>78921</h2>
                             <p>Winter Destinations</p>
                         </div>
                     </Col>
@@ -31,8 +31,8 @@ const Sponsors = () => {
                             <FontAwesomeIcon icon={faCarSide} />
                         </div>
                         <div>
-                            <h2>670</h2>
-                            <p>New Tours</p>
+                            <h2>878</h2>
+                            <p>New Tours Every Year</p>
                         </div>
                     </Col>
                     <Col className="d-flex text-light justify-content-center">
@@ -40,7 +40,7 @@ const Sponsors = () => {
                             <FontAwesomeIcon icon={faSmile} />
                         </div>
                         <div>
-                            <h2>2540</h2>
+                            <h2>8764132</h2>
                             <p>Happy Travelers</p>
                         </div>
                     </Col>

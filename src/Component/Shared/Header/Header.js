@@ -44,7 +44,7 @@ const Header = () => {
                                             <li className="nav-item p-2">
                                                 <NavLink activeClassName="border-bottom border-danger border-5 rounded-bottom text-danger" className="nav-link fs-6 border-5 border-transparent fw-bold" to={`/myorder/${user?.email}`} >
                                                     My orders
-                                                    </NavLink>
+                                                </NavLink>
                                             </li>
                                             { user?.displayName?
                                             <li className="nav-item p-2">
