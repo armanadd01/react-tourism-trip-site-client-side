@@ -37,7 +37,7 @@ const AddUser = () => {
 
                                 <input  className="form-control m-3" placeholder="Enter Date" type="datetime-local" defaultValue={new Date()}  {...register("date")} />
 
-                                <textarea className="form-control m-3" placeholder="Enter Order Description" {...register("description")} />
+                                <input className="form-control m-3" placeholder="Enter Your profile Image Url" type="text"  {...register("img")} />
 
                                 <input className="btn btn-outline-light" type="submit" />
                             </form>

@@ -1,7 +1,9 @@
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Table } from 'react-bootstrap';
 import useFirebase from '../../hooks/useFirebase';
-import Orders from '../Orders/Orders';
+
 
 const MyOrders = () => {
     const { user } = useFirebase();
@@ -35,7 +37,7 @@ const MyOrders = () => {
         <>
             <Container>
                 <Row>
-                <h1>ALL Orders {orders?.length}</h1>
+                <h1>My Orders: {orders?.length}</h1>
                     <Table striped bordered hover>
                         <thead>
                         <tr>
@@ -46,19 +48,21 @@ const MyOrders = () => {
                             <th>Action</th>
                         </tr>
                         </thead>
-                        {orders?.map((pd, index) => (
+                        {orders?.map((myorder, index) => (
                         <tbody>
                             <tr>
                             <td>{index}</td>
-                            <td>{pd?.name}</td>
-                            <td>{pd?.email}</td>
-                            <td>{pd?.date}</td>
-                            <button
-                            onClick={() => handleDelete(pd._id)}
-                            className="btn btn-outline-danger  p-2"
-                        >
-                            Delete
-                        </button> 
+                            <td>{myorder?.name}</td>
+                            <td>{myorder?.email}</td>
+                            <td>{myorder?.date}</td>
+                            <td>
+                              <button
+                              onClick={() => handleDelete(myorder?._id)}
+                              className="btn btn-outline-danger  p-2"
+                              >
+                              <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
+                          </button> 
+                            </td> 
                             </tr>
                         </tbody>
                         ))}

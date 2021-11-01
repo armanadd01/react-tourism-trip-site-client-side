@@ -1,10 +1,12 @@
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Table } from 'react-bootstrap';
 
 const DeleteUsers = () => {
     const [users, setUser] = useState([]);
 
-  const [control, setConrol] = useState(false);
+  const [control, setControl] = useState(false);
 
   useEffect(() => {
     fetch("https://peaceful-bayou-60710.herokuapp.com/users")
@@ -20,9 +22,12 @@ const DeleteUsers = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
-          setConrol(!control);
+          if(window.confirm('Are You Sure to Delete User')){
+            setControl(!control);
+          }
+          
         } else {
-          setConrol(false);
+          setControl(false);
         }
       });
     console.log(id);
@@ -38,23 +43,32 @@ const DeleteUsers = () => {
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Date</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                         </thead>
-                        {users?.map((pd, index) => (
+                        {users?.map((user, index) => (
                         <tbody>
                             <tr>
                             <td>{index}</td>
-                            <td>{pd?.name}</td>
-                            <td>{pd?.email}</td>
-                            <td>{pd?.date}</td>
-                        <button
-                            onClick={() => handleDelete(pd._id)}
-                            className="btn bg-danger p-2"
+                            <td>{user?.name}</td>
+                            <td>{user?.email}</td>
+                            <td>
+                              <img className="rounded-circle" 
+                              style={{height: "30px",
+                                width: "30px",
+                            }} 
+                            src={user?.img} alt="" />
+                              </td>
+                            <td>
+                            <button
+                            onClick={() => handleDelete(user._id)}
+                            className="btn bg-outline-danger p-2"
                         >
-                            Delete
+                            <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
                         </button>
+                            </td>
+                        
                         </tr>
                     </tbody>
                     ))}

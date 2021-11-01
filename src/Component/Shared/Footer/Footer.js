@@ -1,7 +1,7 @@
 import { faFacebook, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Col, Container, ListGroup, Row } from 'react-bootstrap';
+import { Button, Col, Container, FormControl, InputGroup, ListGroup, Row } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import logoImg from '../../../Images/logo.png';
@@ -17,6 +17,17 @@ const Footer = () => {
                     <img className="w-50" src={logoImg} alt="" />   
                     <h5 className="text-uppercase">Tripster</h5>
                     <p>Largest Traveling Website In the World.</p>
+                    <InputGroup className="mb-3">
+                        <FormControl
+                        placeholder="Email"
+                        aria-label="Recipient's username"
+                        aria-describedby="basic-addon2"
+                        className="bg-transparent border-danger"
+                        />
+                        <Button variant="danger" id="button-addon2">
+                        Subscribe Now
+                        </Button>
+                    </InputGroup>
                 </Col>
 
 

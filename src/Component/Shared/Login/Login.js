@@ -1,28 +1,41 @@
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
 import React from 'react';
-import { Redirect, Route, useHistory, useLocation } from 'react-router';
+import { useForm } from 'react-hook-form';
+import { useHistory, useLocation } from 'react-router';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
-    const {googleLogIn } = useAuth();
+    const {googleLogIn, setUser, signInWithPopup} = useAuth();
+    const { register, handleSubmit, reset } = useForm();
     const history = useHistory();
     const location = useLocation();
-    const { from } = location.state || { from: { pathname: "/" } };
-    console.log("🚀 ~ file: Login.js ~ line 12 ~ Login ~ from", from)
-    
-    let login = () => {
-        googleLogIn(() => {
-        const redirect =  async () => history.push(from);
-         
-         console.log(history.replace(from))
-        });
-        //  console.log("🚀 ~ file: Login.js ~ line 19 ~ googleLogIn ~ googleLogIn", googleLogIn)
+    const  redirect_url  = location?.state?.from ||  "/";
+
+
+    const onSubmit = data => {
         
-        
+        axios.post('https://peaceful-bayou-60710.herokuapp.com/adduser',data)
+        .then(res => {
+            if(res.data.insertedId){
+                alert('Order Added Successfully');
+                reset();
+            }
+            
+        })
     };
-    // console.log("🚀 ~ file: Login.js ~ line 19 ~ login ~ login", login)
+
+    let login = () => {
+        googleLogIn()
+            .then((result) => {
+                const user = result.user;
+                setUser(user)
+                history.replace(redirect_url)
+            })
+        };
+
     return (
       // Login page
         <div className="login-bg p-5">
@@ -34,12 +47,22 @@ const Login = () => {
                                 <h2 className="fs-1 ">Welcome to login</h2>
                                 <p>Don't have an account?</p>
                                 <p>Please click the Input Field And Register</p>
+                                <p>Please Register Before Log In</p>
                                 <div className="mt-5">
-                                
-                                    <Link onClick={login} to={from.pathname} className="btn btn-outline-light" >
-                                    <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>
-                                   
-                                    Google Sign in 
+                                <form className="p-2" onSubmit={handleSubmit(onSubmit)}>
+                                    <input className="form-control m-3" placeholder="Enter Plans name" type="text"  {...register("name", { required: true, maxLength: 20 })} />
+
+                                    <input className="form-control  m-3" placeholder="Enter Email" type="text"  {...register("email", { required: true })} />
+
+                                    <input  className="form-control m-3" placeholder="Enter Date" type="datetime-local" defaultValue={new Date()}  {...register("date")} />
+
+                                    <input className="form-control m-3" placeholder="Enter Your profile Image Url" type="text"  {...register("img")} />
+
+                                    <input className="btn btn-outline-light" type="submit" />
+                                </form>
+                                    <Link onClick={login} className="btn btn-outline-light" >
+                                    <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon> 
+                                    Google Log In 
                                 </Link>
                                   
                                 

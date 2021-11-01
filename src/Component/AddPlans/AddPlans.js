@@ -28,6 +28,7 @@ const AddPlans = () => {
                                 <div className="mt-5">
                                 <form className="p-2" onSubmit={handleSubmit(onSubmit)}>
                                     <input className="form-control m-3" placeholder="Enter Plans name" type="text"  {...register("name", { required: true, maxLength: 20 })} />
+                                    <textarea className="form-control m-3" placeholder="Enter Plans Short Description" {...register("short_des", { required: true, maxLength: 100 })} />
                                     <textarea className="form-control m-3" placeholder="Enter Plans Description" {...register("description")} />
                                     <input className="form-control m-3" placeholder="Enter Plans Price"  type="number" {...register("Price")} />
                                     <input className="form-control m-3" placeholder="Enter Plans Image Url" type="text"  {...register("img")} />
