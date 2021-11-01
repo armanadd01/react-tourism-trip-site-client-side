@@ -10,6 +10,7 @@ const Footer = () => {
     const { user, logOut } = useAuth();
     return (
         <>
+        {/* footer */}
     <Container fluid className="text-light text-center bg-info text-md-left mt-5 border-top border-5 border-danger  ">
         <Container>
             <Row className="row">

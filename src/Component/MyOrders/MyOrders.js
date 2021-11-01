@@ -10,6 +10,7 @@ const MyOrders = () => {
     const { user } = useAuth();
     const [orders, setOrders] = useState([]);
     const [control, setConrol] = useState(false);
+    //get myorder data
   useEffect(() => {
     fetch(`https://peaceful-bayou-60710.herokuapp.com/myorder/${user?.email}`)
       .then(res => res.json())

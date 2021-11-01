@@ -7,6 +7,7 @@ import useAuth from '../../hooks/useAuth';
 const AddUser = () => {
     const { user, logOut } = useAuth();
     const { register, handleSubmit, reset } = useForm();
+    //post oder data
     const onSubmit = data => {
         console.log(data)
         data.email = user?.email;

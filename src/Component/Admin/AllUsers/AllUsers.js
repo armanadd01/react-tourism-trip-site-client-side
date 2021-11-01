@@ -3,7 +3,7 @@ import { Card, Col, Container, Row, Table } from 'react-bootstrap';
 
 const AllUsers = () => {
     const [users, setUsers] = useState([]);
-
+    //get all users
     useEffect(() => {
         fetch("https://peaceful-bayou-60710.herokuapp.com/users")
         .then((res) => res.json())

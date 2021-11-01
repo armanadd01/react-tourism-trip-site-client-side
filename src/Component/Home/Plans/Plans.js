@@ -4,7 +4,7 @@ import Plan from '../Plan/Plan';
 
 const Plans = () => {
     const [plans, setPlan] = useState([])
-
+    //get all plans
     useEffect(()=>{
         fetch('https://peaceful-bayou-60710.herokuapp.com/plans')
         .then(res => res.json())

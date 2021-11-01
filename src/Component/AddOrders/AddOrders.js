@@ -8,7 +8,7 @@ const AddOrders = () => {
     const { user } = useAuth();
     const {plansId} = useParams();
     const [plans, setPlan] = useState([]);
-
+    //get plan 
     useEffect(()=>{
         fetch(`https://peaceful-bayou-60710.herokuapp.com/addorder/${plansId}`)
         .then(res => res.json())

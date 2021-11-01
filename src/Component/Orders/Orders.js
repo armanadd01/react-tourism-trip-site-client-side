@@ -5,7 +5,7 @@ const Orders = () => {
     const [order, setOrder] = useState([]);
 
  
-
+    //get all orders
   useEffect(() => {
     fetch("https://peaceful-bayou-60710.herokuapp.com/orders")
       .then((res) => res.json())
@@ -28,20 +28,15 @@ const Orders = () => {
                         <th>Date</th>
                     </tr>
                     </thead>
-                    {order?.map((pd, index) => (
+                    {/* order list */}
+                    {order?.map((order, index) => (
                     <tbody>
                         <tr>
                         <td>{index}</td>
-                        <td>{pd.id}</td>
-                        <td>{pd.name}</td>
-                        <td>{pd.email}</td>
-                        <td>{pd.date}</td>
-                        {/* <button
-                            onClick={() => handleDelete(pd._id)}
-                            className="btn bg-danger p-2"
-                        >
-                            Delete
-                        </button> */}
+                        <td>{order.id}</td>
+                        <td>{order.name}</td>
+                        <td>{order.email}</td>
+                        <td>{order.date}</td>
                         </tr>
                     </tbody>
                     ))}

@@ -26,7 +26,7 @@ function App() {
     <div className="App">
       <AuthProvider>
 
-
+    {/* set route */}
       <Router>
         <Header></Header>
         <Switch>

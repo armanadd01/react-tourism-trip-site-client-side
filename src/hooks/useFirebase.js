@@ -10,11 +10,12 @@ const useFirebase = () => {
     const [error, setError] = useState('')
 
     // Google Log In
-    const googleProvider = new GoogleAuthProvider();
+    
     const googleLogIn = () => {
         setIsLoading(true)
-            return signInWithPopup(auth, googleProvider)
-                .finally(() => setIsLoading(false));
+        const googleProvider = new GoogleAuthProvider();
+        return signInWithPopup(auth, googleProvider)
+            .finally(() => setIsLoading(false));
     }
 
     // use effect for logged in
@@ -42,7 +43,6 @@ const useFirebase = () => {
         isLoading,
         logOut,
         setUser,
-        signInWithPopup,
         error,
         setError
     }

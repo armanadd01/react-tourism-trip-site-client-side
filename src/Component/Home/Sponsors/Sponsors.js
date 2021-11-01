@@ -5,6 +5,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 
 const Sponsors = () => {
     return (
+        // show sponsor
         <div className="w-100 my-5 py-5 bg-danger" >
             <Container className="py-5">
                 <Row>

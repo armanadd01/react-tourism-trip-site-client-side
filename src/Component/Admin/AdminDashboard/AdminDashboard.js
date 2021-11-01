@@ -26,6 +26,7 @@ const AdminDashboard = () => {
                     <Col className="col-md-3 ">
                         <div className=" p-1">
                             <div className="mt-5">
+                                {/* list item */}
                             <ListGroup as="ul">
                                 <ListGroup.Item as="li" onClick={() => setControl("allorders")} >
                                     All Orders
@@ -48,6 +49,7 @@ const AdminDashboard = () => {
                             </div>
                         </div>
                     </Col>
+                    {/* show the data */}
                     <div className="col-md-9 text-center  text-center">
                     {control === "allorders" && <AllOrders></AllOrders>} 
                     {control === "myorder" && <MyOrders></MyOrders>} 

@@ -8,15 +8,15 @@ import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
-    const {googleLogIn, setUser, signInWithPopup, error, setError, isLoading} = useAuth();
+    const {googleLogIn, setUser, setError, isLoading} = useAuth();
     const { register, handleSubmit, reset } = useForm();
     const history = useHistory();
     const location = useLocation();
-    const  redirect_url  = location?.state || { from: { pathname: "/" } };
+    const  redirect_url  = location.state?.from || "/home" ;
 
 
     const onSubmit = data => {
-        
+        //post user data
         axios.post('https://peaceful-bayou-60710.herokuapp.com/adduser',data)
         .then(res => {
             if(res.data.insertedId){
@@ -26,13 +26,13 @@ const Login = () => {
             
         })
     };
-
+    //redirect
     let login = () => {
         googleLogIn()
             .then((result) => {
                 const user = result.user;
                 setUser(user)
-                history.push(redirect_url.from?.pathname)
+                history.push(redirect_url)
             })
             .catch((error)=>{
                 setError(error.message)

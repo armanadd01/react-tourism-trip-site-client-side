@@ -6,13 +6,13 @@ import { Container, Row, Table } from 'react-bootstrap';
 const AllOrders = () => {
     const [orders, setOrders] = useState([]);
     const [control, setControl] = useState(false);
-
+    //get all order
     useEffect(() => {
         fetch("https://peaceful-bayou-60710.herokuapp.com/orders")
         .then((res) => res.json())
         .then((data) => setOrders(data));
     }, [control]);
-
+    //delete order
     const handleDelete = (id) => {
         fetch(`https://peaceful-bayou-60710.herokuapp.com/deleteOrder/${id}`, {
           method: "DELETE",
@@ -32,11 +32,9 @@ const AllOrders = () => {
       };
 
       // UPDATE status
-
     const handleUpdateStatus = (id) => {
-
       const updated = { status: 'Approved' }
-
+      //update order status
       fetch(`https://peaceful-bayou-60710.herokuapp.com/updateOrder/${id}`, {
           method: 'PUT',
           headers: { 'content-type': 'application/json' },

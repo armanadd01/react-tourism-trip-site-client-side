@@ -8,7 +8,7 @@ const Plan = (props) => {
     const {_id, Price, name, img, description, short_des } = props.plan
     return (
         <>
-            
+            {/* show single plan */}
             <Col md={4} className="my-4">
                 <Card style={{ width: '100%'}}>
                     <Card.Img style={{height: '13rem' }} variant="top" src={img} />

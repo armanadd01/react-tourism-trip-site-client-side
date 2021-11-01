@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 
 const Banner = () => {
     return (
+        // home banner
         <div className="banner-bg">
             <Container className="py-5">
                 <Row>

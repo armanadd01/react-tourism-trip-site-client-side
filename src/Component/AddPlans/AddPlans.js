@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 
 const AddPlans = () => {
     const { register, handleSubmit, reset } = useForm();
+    //handle plans from
     const onSubmit = data => {
         console.log(data)
         axios.post('https://peaceful-bayou-60710.herokuapp.com/plans',data)

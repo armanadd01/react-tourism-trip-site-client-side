@@ -7,6 +7,7 @@ import Sponsors from '../Sponsors/Sponsors';
 const Home = () => {
     return (
         <div>
+            {/* show home page element */}
             <Banner></Banner>
             <Plans></Plans>
             <Sponsors></Sponsors>
